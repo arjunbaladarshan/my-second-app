@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { StudentsComponent } from './students/students.component';
 import { DetailStudentComponent } from './detail-student/detail-student.component';
+import { FacultyComponent } from './faculty/faculty.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DetailStudentComponent } from './detail-student/detail-student.componen
     AboutComponent,
     ContactComponent,
     StudentsComponent,
-    DetailStudentComponent
+    DetailStudentComponent,
+    FacultyComponent
   ],
   imports: [
     BrowserModule,
