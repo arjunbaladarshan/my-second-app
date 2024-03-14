@@ -1,0 +1,54 @@
+<form #studentForm="ngForm" (ngSubmit)="addStudent(studentForm)">
+    <table>
+        <tr>
+            <td>Enter Name</td>
+            <td>
+                <input type="text" name="StudentName" required ngModel />
+            </td>
+            <td class="text-danger">
+                <span *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].invalid">
+                    Please Enter Student Name
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Mobile Number</td>
+            <td>
+                <input type="text" name="MobileNumber" pattern="[0-9]{10}" required ngModel />
+            </td>
+            <td class="text-danger">
+                <span *ngIf="studentForm.controls['MobileNumber'].touched && studentForm.controls['MobileNumber'].invalid">
+                    Please Enter Mobile Number
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" class="btn btn-primary" value="Save" [disabled]="studentForm.invalid"/>
+            </td>
+        </tr>
+    </table>
+    <table border="1" class="table table-striped">
+        <tr>
+            <td>Field</td>
+            <td>Touched</td>
+            <td>Dirty</td>
+            <td>Valid</td>
+            <td>Value</td>
+        </tr>
+        <tr>
+            <td>StudentName</td>
+            <td>{{ studentForm.controls['StudentName'].touched }}</td>
+            <td>{{ studentForm.controls['StudentName'].dirty }}</td>
+            <td>{{ studentForm.controls['StudentName'].valid }}</td>
+            <td>{{ studentForm.controls['StudentName'].value }}</td>
+        </tr>
+        <tr>
+            <td>MobileNumber</td>
+            <td>{{ studentForm.controls['MobileNumber'].touched }}</td>
+            <td>{{ studentForm.controls['MobileNumber'].dirty }}</td>
+            <td>{{ studentForm.controls['MobileNumber'].valid }}</td>
+            <td>{{ studentForm.controls['MobileNumber'].value }}</td>
+        </tr>
+    </table>
+</form>
