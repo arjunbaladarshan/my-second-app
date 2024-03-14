@@ -1,1 +1,44 @@
-<p>updated faculty works!</p>
+<table>
+    <tr>
+        <td>
+            Enter ID
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="tempFac.id" [readOnly]="idToUpdate>0"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Enter Name
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="tempFac.FacultyName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Enter Initial
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="tempFac.FacultyInitial" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button *ngIf="idToUpdate<0" (click)="addFaculty()" class="btn btn-primary">Add</button>
+            <button *ngIf="idToUpdate>0" (click)="editFaculty()" class="btn btn-primary">Edit</button>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-hover table-bordered">
+    <tr *ngFor="let fac of faculites">
+        <td>{{ fac.FacultyName }}</td>
+        <td>
+            <button class="btn btn-warning" (click)="setDataFaculty(fac.id)">Edit</button>
+        </td>
+        <td>
+            <button class="btn btn-danger" (click)="deleteFaculty(fac.id)">Delete</button>
+        </td> 
+    </tr>
+</table>
